@@ -10,7 +10,7 @@ def callback(message, data):
 def main():
     if len(sys.argv) < 3:
         print("wrapper.py <appname> <agent>")
-        os.exit(0)
+        sys.exit(0)
 
     source = None
     with codecs.open(sys.argv[2], "r", "utf-8") as f:
@@ -30,7 +30,7 @@ def main():
 
     else:
         print("failed to read the frida agent")
-        os.exit(1)
+        sys.exit(1)
 
 
 if __name__ == '__main__':
