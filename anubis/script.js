@@ -23,7 +23,7 @@ if (Java.available) {
             send("[*] open called => (\""+ filename + "\")");
             if (filename.endsWith(".class") || filename.endsWith(".dex")) {
                 this.flag = true;
-                var backtrace = Thread.backtrace(this.Context, Backtracer.ACCURATE).mao(DebugSymbol.fromAddress).join("\n\t");
+                var backtrace = Thread.backtrace(this.Context, Backtracer.ACCURATE).map(DebugSymbol.fromAddress).join("\n\t");
 
             }
         },
