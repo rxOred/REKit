@@ -8,16 +8,16 @@ def callback(message, data):
         print(message)
 
 def main():
-    if len(sys.argv) < 2:
-        print("wrapper.py <agent.js>")
+    if len(sys.argv) < 3:
+        print("wrapper.py <exe> <agent.js>")
         sys.exit(0)
     
     source = None
-    with codecs.open(sys.argv[1], "r", "utf-8") as f:
+    with codecs.open(sys.argv[2], "r", "utf-8") as f:
         source = f.read()
         
     if source: 
-        pid = frida.spawn("HackyBird.exe")
+        pid = frida.spawn(argv[1])
         session = frida.attach(pid)
         script = session.create_script(source)
         frida.resume(pid)
